@@ -1,13 +1,9 @@
 //create web server
-//create router object
-//add routes
-//export router object
-const express = require('express');
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
+const express = require('express');     
+const router = express.Router();        //create router object
+const Comment = require('../models/comment'); //import comment model
+const Post = require('../models/post'); //import post model
+const User = require('../models/user'); //import user model
+const { check, validationResult } = require('express-validator'); //import express validator
+const { ensureAuthenticated } = require('../config/auth'); //import authentication
 
-const Comments = require('../models/comments');
-
-const commentRouter = express.Router();
-
-commentRouter.use(bodyParser.json());
